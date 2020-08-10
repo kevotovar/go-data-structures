@@ -60,3 +60,10 @@ func TestValueHashTable_Keys(t *testing.T) {
 		t.Errorf("wrong count, expected 3 and got %d", keysLen)
 	}
 }
+
+func TestValueHashTable_Elements(t *testing.T) {
+	dict := populateHashTable(3, 0)
+	if valuesLen := len(dict.Elements()); valuesLen != 3 {
+		t.Errorf("wrong count, expected 3 and got %d", valuesLen)
+	}
+}

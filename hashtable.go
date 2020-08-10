@@ -70,3 +70,13 @@ func (ht *ValueHashTable) Keys() []int {
 	}
 	return keys
 }
+
+func (ht *ValueHashTable) Elements() []Value {
+	ht.lock.RLock()
+	defer ht.lock.RUnlock()
+	values := make([]Value, 0, len(ht.items))
+	for _, v := range ht.items {
+		values = append(values, v)
+	}
+	return values
+}
